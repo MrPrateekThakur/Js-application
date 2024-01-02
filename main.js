@@ -38,14 +38,13 @@ function createHeader() {
 
         let cartList = JSON.parse(localStorage.getItem("Cart List"));
         let totalProduct;
-        if (cartList) {
-
-            let user = cartList.find((user) => {
-                return user.email == currentUser;
-            });
-
+        let user = cartList.find((user) => {
+            return user.email == currentUser;
+        });
+        
+        if (user) {
             totalProduct = user.cartItems.length;
-        } else{
+        } else {
             totalProduct = 0;
         }
 
